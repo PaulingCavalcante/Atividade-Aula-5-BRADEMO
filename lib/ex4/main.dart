@@ -9,7 +9,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Flutter Form Demo',
+      title: 'Formulário de inscrição',
       theme: ThemeData(primarySwatch: Colors.blue),
       home: const FormPage(),
     );
@@ -59,9 +59,10 @@ class _FormPageState extends State<FormPage> {
 
   void _submit() {
     if (_formKey.currentState!.validate()) {
-      final msg = 'Nome: ${_nameController.text}  |  '
-          'Telefone: ${_phoneController.text}  |  '
-          'Data de nasc.: ${_dobText.isEmpty ? "não informada" : _dobText}';
+      final msg =
+          'Nome: ${_nameController.text};\n'
+          'Telefone: ${_phoneController.text};\n'
+          'Data de nasc.: ${_dobText.isEmpty ? "não informada" : _dobText}.';
 
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
@@ -77,7 +78,7 @@ class _FormPageState extends State<FormPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Flutter Form Demo'),
+        title: const Text('Formulário de inscrição'),
         backgroundColor: Colors.blue,
         foregroundColor: Colors.white,
       ),
@@ -87,7 +88,6 @@ class _FormPageState extends State<FormPage> {
           key: _formKey,
           child: Column(
             children: [
-              // Campo Nome
               Row(
                 children: [
                   const Icon(Icons.person_outline, color: Colors.grey),
@@ -96,7 +96,7 @@ class _FormPageState extends State<FormPage> {
                     child: TextFormField(
                       controller: _nameController,
                       decoration: const InputDecoration(
-                        hintText: 'Name',
+                        hintText: 'Nome',
                         border: UnderlineInputBorder(),
                       ),
                       validator: (v) =>
@@ -107,7 +107,6 @@ class _FormPageState extends State<FormPage> {
               ),
               const SizedBox(height: 16),
 
-              // Campo Telefone
               Row(
                 children: [
                   const Icon(Icons.phone_outlined, color: Colors.grey),
@@ -117,18 +116,18 @@ class _FormPageState extends State<FormPage> {
                       controller: _phoneController,
                       keyboardType: TextInputType.phone,
                       decoration: const InputDecoration(
-                        hintText: 'Phone',
+                        hintText: 'Celular',
                         border: UnderlineInputBorder(),
                       ),
-                      validator: (v) =>
-                          (v == null || v.isEmpty) ? 'Informe o telefone' : null,
+                      validator: (v) => (v == null || v.isEmpty)
+                          ? 'Informe o telefone'
+                          : null,
                     ),
                   ),
                 ],
               ),
               const SizedBox(height: 16),
 
-              // Campo Data de Nascimento
               Row(
                 children: [
                   const Icon(Icons.calendar_today_outlined, color: Colors.grey),
@@ -139,9 +138,8 @@ class _FormPageState extends State<FormPage> {
                       child: AbsorbPointer(
                         child: TextFormField(
                           decoration: InputDecoration(
-                            hintText: 'Dob',
+                            hintText: 'Data de nascimento',
                             border: const UnderlineInputBorder(),
-                            // Mostra a data selecionada no hint
                             labelText: _dobText.isNotEmpty ? _dobText : null,
                           ),
                         ),
@@ -152,12 +150,11 @@ class _FormPageState extends State<FormPage> {
               ),
               const SizedBox(height: 32),
 
-              // Botão Submit – alinhado à direita, como no layout
               Align(
-                alignment: Alignment.centerRight,
+                alignment: Alignment.center,
                 child: ElevatedButton(
                   onPressed: _submit,
-                  child: const Text('Submit'),
+                  child: const Text('Enviar'),
                 ),
               ),
             ],
