@@ -15,8 +15,6 @@ class MyApp extends StatelessWidget {
     );
   }
 }
-
-// Modelo simples de tarefa
 class Task {
   final String id;
   bool completed;
@@ -32,7 +30,6 @@ class TaskListPage extends StatefulWidget {
 }
 
 class _TaskListPageState extends State<TaskListPage> {
-  // Lista inicial – IDs no formato da imagem
   final List<Task> _tasks = [
     Task(id: 'Task 2022-07-09\n18:08:31.734244'),
     Task(id: 'Task 2022-07-09\n18:08:32.210300'),
@@ -48,13 +45,12 @@ class _TaskListPageState extends State<TaskListPage> {
 
   int get _uncompletedCount => _tasks.where((t) => !t.completed).length;
 
-  // FAB → AlertDialog
   void _showAboutDialog() {
     showDialog(
       context: context,
       builder: (ctx) => AlertDialog(
         content: const Text(
-          'Você está no App de Notas de Tarefas',
+          'Essa feature não está implementada ainda! :(\nVolte na próxima atualização.',
           textAlign: TextAlign.center,
         ),
         actions: [
@@ -67,7 +63,6 @@ class _TaskListPageState extends State<TaskListPage> {
     );
   }
 
-  // Botão "View Completed Tasks"
   void _toggleCompleted() {
     setState(() => _showCompleted = !_showCompleted);
   }
@@ -101,7 +96,6 @@ class _TaskListPageState extends State<TaskListPage> {
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          // Contador de tarefas pendentes
           Padding(
             padding:
                 const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
@@ -111,7 +105,6 @@ class _TaskListPageState extends State<TaskListPage> {
             ),
           ),
 
-          // Lista de tarefas
           Expanded(
             child: _visibleTasks.isEmpty
                 ? const Center(
@@ -159,7 +152,6 @@ class _TaskListPageState extends State<TaskListPage> {
         ],
       ),
 
-      // FAB → mostra AlertDialog
       floatingActionButton: FloatingActionButton(
         onPressed: _showAboutDialog,
         backgroundColor: Colors.blue,
