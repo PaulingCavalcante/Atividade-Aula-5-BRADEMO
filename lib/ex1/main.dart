@@ -36,7 +36,6 @@ class PicsumPhoto {
 
 class PicsumService {
   static Future<List<PicsumPhoto>> fetchRandom({int count = 6}) async {
-    // Alterna entre páginas para variar as fotos a cada refresh
     final page = DateTime.now().millisecondsSinceEpoch % 10 + 1;
     final uri = Uri.parse(
       'https://picsum.photos/v2/list?page=$page&limit=20',
@@ -168,7 +167,6 @@ class _PhotoCard extends StatelessWidget {
                   size: 48, color: Colors.grey),
             ),
           ),
-          // Legenda com autor e ID da foto
           Positioned(
             bottom: 0,
             left: 0,

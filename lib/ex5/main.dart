@@ -23,7 +23,7 @@ class BottomBarPage extends StatefulWidget {
 
 class _BottomBarPageState extends State<BottomBarPage>
     with SingleTickerProviderStateMixin {
-  int _selectedTab = 3; // "Bottom" ativo por padrão, igual à imagem
+  int _selectedTab = 3; 
   bool _fabOpen = false;
   late AnimationController _animCtrl;
   late Animation<double> _expandAnim;
@@ -51,7 +51,6 @@ class _BottomBarPageState extends State<BottomBarPage>
     });
   }
 
-  // Mini-FABs que aparecem ao abrir
   static const List<_SpeedDialItem> _speedDials = [
     _SpeedDialItem(icon: Icons.chat_bubble_outline, label: 'Mensagem'),
     _SpeedDialItem(icon: Icons.mail_outline, label: 'E-mail'),
@@ -74,11 +73,9 @@ class _BottomBarPageState extends State<BottomBarPage>
         ),
       ),
 
-      // Speed-dial sobre o FAB principal
       floatingActionButton: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
-          // Mini-FABs animados
           ..._speedDials.reversed.map((item) {
             return ScaleTransition(
               scale: _expandAnim,
@@ -87,7 +84,6 @@ class _BottomBarPageState extends State<BottomBarPage>
                 child: Row(
                   mainAxisSize: MainAxisSize.min,
                   children: [
-                    // Rótulo
                     AnimatedOpacity(
                       opacity: _fabOpen ? 1 : 0,
                       duration: const Duration(milliseconds: 200),
@@ -122,12 +118,11 @@ class _BottomBarPageState extends State<BottomBarPage>
             );
           }),
 
-          // FAB principal
           FloatingActionButton(
             onPressed: _toggleFab,
             backgroundColor: Colors.blue,
             child: AnimatedRotation(
-              turns: _fabOpen ? 0.125 : 0, // gira 45° ao abrir
+              turns: _fabOpen ? 0.125 : 0,
               duration: const Duration(milliseconds: 250),
               child: const Icon(Icons.add, color: Colors.white),
             ),
@@ -158,7 +153,6 @@ class _BottomBarPageState extends State<BottomBarPage>
                 selected: _selectedTab,
                 onTap: (i) => setState(() => _selectedTab = i),
               ),
-              // espaço para o FAB encaixado
               const SizedBox(width: 56),
               _TabButton(
                 index: 2,

@@ -69,7 +69,6 @@ class ResponsivePage extends StatelessWidget {
             ],
           ),
         ),
-        // Lista de itens em baixo
         Expanded(
           child: ListView.separated(
             itemCount: items.length,
@@ -90,7 +89,6 @@ class ResponsivePage extends StatelessWidget {
   Widget _buildLandscape() {
     return Row(
       children: [
-        // Lado esquerdo: título + botões empilhados
         Expanded(
           child: Padding(
             padding: const EdgeInsets.all(24),
@@ -122,9 +120,7 @@ class ResponsivePage extends StatelessWidget {
             ),
           ),
         ),
-        // Divisor vertical
         const VerticalDivider(width: 1),
-        // Lado direito: lista
         Expanded(
           child: ListView.separated(
             itemCount: items.length,
