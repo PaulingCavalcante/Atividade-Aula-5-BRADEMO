@@ -23,7 +23,10 @@ class ResponsivePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Responsive Layouts')),
+      appBar: AppBar(
+        title: const Text('Responsive Layouts'),
+        centerTitle: true,
+      ),
       body: OrientationBuilder(
         builder: (context, orientation) {
           return orientation == Orientation.portrait
@@ -38,35 +41,30 @@ class ResponsivePage extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        // Header: título + botões lado a lado
         Padding(
           padding: const EdgeInsets.all(16),
           child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               const Text(
                 'Cheetah Coding',
                 style: TextStyle(fontSize: 22, fontWeight: FontWeight.w400),
               ),
               const SizedBox(height: 12),
-              Row(
-                children: [
-                  ElevatedButton(
-                    onPressed: () {},
-                    style: ElevatedButton.styleFrom(
-                      padding: const EdgeInsets.symmetric(horizontal: 16),
+              Center(
+                child: Wrap(
+                  spacing: 8,
+                  children: [
+                    ElevatedButton(
+                      onPressed: () {},
+                      child: const Text('BUTTON 1'),
                     ),
-                    child: const Text('BUTTON 1'),
-                  ),
-                  const SizedBox(width: 8),
-                  ElevatedButton(
-                    onPressed: () {},
-                    style: ElevatedButton.styleFrom(
-                      padding: const EdgeInsets.symmetric(horizontal: 16),
+                    ElevatedButton(
+                      onPressed: () {},
+                      child: const Text('BUTTON 2'),
                     ),
-                    child: const Text('BUTTON 2'),
-                  ),
-                ],
+                  ],
+                ),
               ),
             ],
           ),
@@ -97,7 +95,7 @@ class ResponsivePage extends StatelessWidget {
           child: Padding(
             padding: const EdgeInsets.all(24),
             child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.center,
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 const Text(
@@ -132,10 +130,7 @@ class ResponsivePage extends StatelessWidget {
             itemCount: items.length,
             separatorBuilder: (_, __) => const Divider(height: 1),
             itemBuilder: (context, index) => ListTile(
-              title: Text(
-                items[index],
-                style: const TextStyle(fontSize: 16),
-              ),
+              title: Text(items[index], style: const TextStyle(fontSize: 16)),
             ),
           ),
         ),
