@@ -1,11 +1,5 @@
 import 'package:flutter/material.dart';
 
-/// Exercício 3 – Restrições de Layout Flutter
-/// Baseado em: https://docs.flutter.dev/ui/layout/constraints
-/// Regra de ouro: "Constraints go down. Sizes go up. Parent sets position."
-///
-/// Cada exemplo mostra um comportamento diferente do sistema de constraints.
-
 void main() => runApp(const MyApp());
 
 class MyApp extends StatelessWidget {
@@ -118,9 +112,6 @@ class ConstraintsPage extends StatelessWidget {
   }
 }
 
-// ───────────────────────────────────────────────
-// Widget auxiliar: cartão de exemplo
-// ───────────────────────────────────────────────
 class _ExampleCard extends StatelessWidget {
   final int number;
   final String title;
@@ -162,11 +153,6 @@ class _ExampleCard extends StatelessWidget {
   }
 }
 
-// ───────────────────────────────────────────────
-// Exemplos individuais
-// ───────────────────────────────────────────────
-
-// 1. Container sem tamanho definido → ocupa tudo (tight constraint do pai)
 class _Example1 extends StatelessWidget {
   const _Example1();
   @override
@@ -175,7 +161,6 @@ class _Example1 extends StatelessWidget {
   }
 }
 
-// 2. Container com tamanho 100×100 dentro de outro Container sem constraints soltas
 class _Example2 extends StatelessWidget {
   const _Example2();
   @override
@@ -187,7 +172,6 @@ class _Example2 extends StatelessWidget {
   }
 }
 
-// 3. Center → constraints loose → Container fica 100×100
 class _Example3 extends StatelessWidget {
   const _Example3();
   @override
@@ -215,7 +199,6 @@ class _Example4 extends StatelessWidget {
   }
 }
 
-// 5. Row com filhos sem Expanded
 class _Example5 extends StatelessWidget {
   const _Example5();
   @override
@@ -233,7 +216,6 @@ class _Example5 extends StatelessWidget {
   }
 }
 
-// 6. Row com Expanded
 class _Example6 extends StatelessWidget {
   const _Example6();
   @override
@@ -253,7 +235,7 @@ class _Example6 extends StatelessWidget {
   }
 }
 
-// 7. UnconstrainedBox → filho pode ser maior (overflow)
+
 class _Example7 extends StatelessWidget {
   const _Example7();
   @override
@@ -277,7 +259,7 @@ class _Example7 extends StatelessWidget {
   }
 }
 
-// 8. OverflowBox – mostra overflow sem gerar exceção
+
 class _Example8 extends StatelessWidget {
   const _Example8();
   @override
@@ -303,7 +285,6 @@ class _Example8 extends StatelessWidget {
   }
 }
 
-// 9. FittedBox escala o filho
 class _Example9 extends StatelessWidget {
   const _Example9();
   @override
@@ -321,7 +302,6 @@ class _Example9 extends StatelessWidget {
   }
 }
 
-// 10. SizedBox.expand
 class _Example10 extends StatelessWidget {
   const _Example10();
   @override
