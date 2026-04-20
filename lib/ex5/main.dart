@@ -63,6 +63,7 @@ class _BottomBarPageState extends State<BottomBarPage>
     return Scaffold(
       appBar: AppBar(
         title: const Text('BottomAppBar with FAB'),
+        centerTitle: true,
         backgroundColor: Colors.blue,
         foregroundColor: Colors.white,
       ),
@@ -93,7 +94,9 @@ class _BottomBarPageState extends State<BottomBarPage>
                       child: Container(
                         margin: const EdgeInsets.only(right: 8),
                         padding: const EdgeInsets.symmetric(
-                            horizontal: 8, vertical: 4),
+                          horizontal: 8,
+                          vertical: 4,
+                        ),
                         decoration: BoxDecoration(
                           color: Colors.black87,
                           borderRadius: BorderRadius.circular(4),
@@ -101,7 +104,9 @@ class _BottomBarPageState extends State<BottomBarPage>
                         child: Text(
                           item.label,
                           style: const TextStyle(
-                              color: Colors.white, fontSize: 12),
+                            color: Colors.white,
+                            fontSize: 12,
+                          ),
                         ),
                       ),
                     ),
@@ -140,31 +145,35 @@ class _BottomBarPageState extends State<BottomBarPage>
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
               _TabButton(
-                  index: 0,
-                  icon: Icons.list,
-                  label: 'This',
-                  selected: _selectedTab,
-                  onTap: (i) => setState(() => _selectedTab = i)),
+                index: 0,
+                icon: Icons.list,
+                label: 'Menu1',
+                selected: _selectedTab,
+                onTap: (i) => setState(() => _selectedTab = i),
+              ),
               _TabButton(
-                  index: 1,
-                  icon: Icons.diamond_outlined,
-                  label: 'Is',
-                  selected: _selectedTab,
-                  onTap: (i) => setState(() => _selectedTab = i)),
+                index: 1,
+                icon: Icons.diamond_outlined,
+                label: 'Menu2',
+                selected: _selectedTab,
+                onTap: (i) => setState(() => _selectedTab = i),
+              ),
               // espaço para o FAB encaixado
               const SizedBox(width: 56),
               _TabButton(
-                  index: 2,
-                  icon: Icons.grid_view,
-                  label: 'A',
-                  selected: _selectedTab,
-                  onTap: (i) => setState(() => _selectedTab = i)),
+                index: 2,
+                icon: Icons.grid_view,
+                label: 'Menu3',
+                selected: _selectedTab,
+                onTap: (i) => setState(() => _selectedTab = i),
+              ),
               _TabButton(
-                  index: 3,
-                  icon: Icons.table_bar,
-                  label: 'Bottom',
-                  selected: _selectedTab,
-                  onTap: (i) => setState(() => _selectedTab = i)),
+                index: 3,
+                icon: Icons.table_bar,
+                label: 'Menu4',
+                selected: _selectedTab,
+                onTap: (i) => setState(() => _selectedTab = i),
+              ),
             ],
           ),
         ),
